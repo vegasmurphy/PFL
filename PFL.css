@@ -1,0 +1,3 @@
+tr:not(:first-child):hover{
+	background-color: lightblue;
+}

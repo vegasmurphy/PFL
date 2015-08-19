@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PFL test</title>
+	<link rel="stylesheet" type="text/css" href="PFL.css">
+	<!-- Latest compiled and minified CSS -->
+	<script src="jquery-1.11.3.min.js"type="text/javascript"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="handlebars-v3.0.3.js"type="text/javascript"></script>
+
+
+	<script src="PFL.js"></script>
+</head>
+<body>
+	<script id="products_template" type="text/x-handlebars-template">
+	     <table class="table">
+		  <tr>
+		  	<th>Product ID</th>
+		  	<th>Name</th>
+		  </tr>
+		  {{#each products}}
+			  <tr>
+			    <td class="productID">{{this.productID}}</td>
+			    <td>{{this.name}}</td>
+			  </tr>
+		  {{/each}}
+		</table> 
+		
+	</script>
+
+	<script id="product_template" type="text/x-handlebars-template">
+		<form>
+		{{#each field}}
+			
+			<label>
+				{{this.prompt.1.text}}
+				<input class="templateData" type="text" name="{{this.htmlfieldname}}">
+			</label>
+		{{/each}}
+		<input type="button" value="Order" onClick="submitOrder()">
+		</form> 
+	</script>
+
+
+	<div id="results"></div>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Product Details</h4>
+	      </div>
+	      <div class="modal-body" id="productDetails">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+</body>
+</html>
